@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import NewPostPage from "@/components/post/add-post/NewPostPage";
-import {useRouter} from "next/router";
 import {getSession} from "next-auth/react";
 import {GetServerSideProps, GetServerSidePropsContext} from "next";
 

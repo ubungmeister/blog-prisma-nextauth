@@ -10,8 +10,8 @@ export default function App({Component, pageProps}: AppProps) {
         <AppContextProvider>
             <SessionProvider session={pageProps}>
             <Header/>
-            </SessionProvider>
             <Component {...pageProps} />
+            </SessionProvider>
         </AppContextProvider>
     )
 }

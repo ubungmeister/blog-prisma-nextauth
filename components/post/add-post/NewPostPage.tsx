@@ -4,8 +4,10 @@ import ReactDatePicker from "react-datepicker";
 import {useRouter} from "next/router";
 import "react-datepicker/dist/react-datepicker.css";
 import {RegisterData} from "@/components/authentication/Register";
+import {createPost} from "@/utils";
 
 export type PostType = {
+    user?:string
     author?: string
     id?: number
     title: string
@@ -15,13 +17,6 @@ export type PostType = {
     address: string
     photo: string
 
-}
-export const createPost = async (data: PostType) => {
-    const result = await fetch('/api/new-post', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {'Content-Type': 'application/json'}
-    })
 }
 
 
