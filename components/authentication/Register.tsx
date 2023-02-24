@@ -1,13 +1,27 @@
 import React, {FormEvent, useRef, useState} from 'react';
-import {createUser} from "@/utils";
-import {useRouter} from "next/router";
+import {useRouter, withRouter} from "next/router";
 import {useAppContext} from "@/components/authContext/AuthContext";
 
+export const createUser = async (registerData: RegisterData) => {
+    try {
+        const result = await fetch('/api/register', {
+            method: 'POST',
+            body: JSON.stringify(registerData),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        })
+        return result
+    } catch (error) {
+        console.log(error)
+    }
+
+}
 
 export type RegisterData = {
     email: string
     password: string
-    id?:number
+    id?: number
     name?: string
 }
 
@@ -18,25 +32,27 @@ export type isLoginType = {
 
 const Register = () => {
     const {setIsLogin} = useAppContext()
-
-    const initialState = {email: '', password: '', name:''}
-    const [registerData, setRegisterData] = useState<RegisterData>(initialState)
     const router = useRouter()
+    const initialState = {email: '', password: '', name: ''}
+    const [registerData, setRegisterData] = useState<RegisterData>(initialState)
+    const [success, setSuccess] = useState<boolean>(false)
+
     const onFormHandler = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         if (registerData.email.trim() && registerData.password.trim().length >= 6) {
-          const result =  await createUser(registerData)
-            if(result){
-                alert('Success')
-               await router.replace('/')
+            const result = await createUser(registerData)
+            if (result) {
+                await router.replace('/')
+
             }
         }
     }
 
     return (
         <form
-            className='mx-auto items-center w-auto min-w-[25%] max-w-min flex flex-col py-8 border rounded-md border-gray-500 space-y-4'
+            className='mx-auto items-center w-auto md:min-w-[25%] min-w-[70%] max-w-min flex flex-col py-8 border rounded-md border-gray-500 space-y-4'
             onSubmit={(e) => onFormHandler(e)}>
+
             <h1 className='text-xl'>Register</h1>
             <input className='border border-gray-500 p-2 rounded-md'
                    placeholder={'User name'}
@@ -61,11 +77,11 @@ const Register = () => {
             </button>
             <div className='flex flex-row space-x-1'>
                 <p>Have have an account</p>
-                <button onClick={()=>setIsLogin(false)}>Login</button>
+                <button onClick={() => setIsLogin(false)}>Login</button>
 
             </div>
         </form>
     );
 };
 
-export default Register;;
+export default Register;

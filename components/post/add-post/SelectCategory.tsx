@@ -30,7 +30,7 @@ const SelectCategory = ({selectedCategory}:OptionsType) => {
         selectedCategory(e.value,e.label)
     },[category])
     return (
-        <div className='w-full md:w-2/3 w-5/6'>
+        <div className=' md:w-3/4 w-5/6'>
             <Select
                 className='border-none'
                 placeholder='Category'

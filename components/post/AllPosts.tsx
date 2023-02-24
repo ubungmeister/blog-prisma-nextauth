@@ -28,7 +28,6 @@ const AllPosts = ({post}:AllPostsProps ) => {
 
     const onDeleteHandler =async (id:any)=>{
         const result = await deletePost(id)
-        console.log("Post deleted")
         await router.replace(router.asPath)
     }
 
@@ -52,9 +51,6 @@ const AllPosts = ({post}:AllPostsProps ) => {
                 <p className='italic'>Category:</p>
                 <div className='bg-blue-300 text-white rounded-md px-1'>#{category}</div>
             </div>
-            <Link href={`/${id}`}>
-                <div>Explore</div>
-            </Link>
         </div>
     );
 };

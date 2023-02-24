@@ -42,7 +42,7 @@ export const createPost = async (data: PostType) => {
 }
 
 export const deletePost= async (id:number)=>{
-    console.log(id)
+
     const result = await fetch('/api/delete-post', {
         method: 'DELETE',
         body: JSON.stringify({id}),

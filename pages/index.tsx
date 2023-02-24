@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
         return {
             props: {
-                posts: posts.map((event) => ({
+                posts: posts.reverse().map((event) => ({
                     id: event.id.toString(),
                     title: event.title,
                     description: event.description,

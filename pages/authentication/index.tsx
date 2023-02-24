@@ -7,7 +7,7 @@ const Authentication = () => {
     const {isLogin} = useAppContext()
 
     return (
-        <div className='pt-10'>
+        <div className='pt-10 '>
             {isLogin ? <Register/> : <Login/>}
         </div>
     );

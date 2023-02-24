@@ -31,16 +31,16 @@ const Login = () => {
 
     return (
         <form
-            className='mx-auto items-center w-auto min-w-[25%] max-w-min flex flex-col py-8 border rounded-md border-gray-500 space-y-4'
+            className='mx-auto items-center w-auto md:min-w-[25%] min-w-[70%] max-w-min flex flex-col py-8 border rounded-md border-gray-500 space-y-4'
             onSubmit={(e) => onFormHandler(e)}>
             <h1 className='text-xl'>Login </h1>
-            <input className='border border-gray-500 p-2 rounded-md'
+            <input className='border border-gray-500 p-2 rounded-md md:w-5/6 w-3/4'
                    placeholder={'Email'}
                    value={loginData.email}
                    onChange={(e) =>
                        setLoginData({...loginData, email: e.currentTarget.value})}
             />
-            <input className='border border-gray-500 p-2 rounded-md'
+            <input className='border border-gray-500 p-2 rounded-md md:w-5/6 w-3/4'
                    placeholder={'Password'}
                    value={loginData.password}
                    onChange={(e) =>

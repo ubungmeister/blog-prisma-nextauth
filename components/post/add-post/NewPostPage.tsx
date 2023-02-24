@@ -52,29 +52,29 @@ const NewPostPage = () => {
     return (
         <form onSubmit={(e) => onFormHandler(e)}
               className='mx-auto items-center flex flex-col bg-gray-100 w-auto
-              md:min-w-[35%] min-w-[60%] max-w-min py-4 space-y-2 rounded-md'>
+              md:min-w-[35%] min-w-[70%] max-w-min py-4 space-y-2 rounded-md'>
             <div className='text-xl p-2'>Add Event</div>
             <input
                 ref={titleInputRef}
-                className=' p-2 md:w-2/3 w-5/6 '
+                className=' p-2 md:w-3/4 w-5/6 '
                 placeholder='Title'
             />
             <textarea
                 ref={descriptionInputRef}
-                className='w-full p-2 md:w-2/3 w-5/6 '
+                className=' p-2 md:w-3/4 w-5/6 '
                 placeholder='Description'
             />
             <input
                 ref={addressInputRef}
-                className='w-full p-2 md:w-2/3 w-5/6 '
+                className=' p-2 md:w-3/4 w-5/6 '
                 placeholder='Address'
             />
             <input
                 ref={photoInputRef}
-                className='w-full p-2 md:w-2/3 w-5/6 '
+                className=' p-2 md:w-3/4 w-5/6 '
                 placeholder='Photo src'
             />
-            <div className='w-full md:w-2/3 w-5/6'>
+            <div className=' md:w-3/4 w-5/6'>
                 <ReactDatePicker
                     className='py-1 text-center focus:outline-none w-full'
                     closeOnScroll={true}
